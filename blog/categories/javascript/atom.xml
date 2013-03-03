@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: javascript | /sbin/blog]]></title>
+  <link href="http://stephenbinns.github.com/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://stephenbinns.github.com/"/>
+  <updated>2013-03-03T15:40:49+00:00</updated>
+  <id>http://stephenbinns.github.com/</id>
+  <author>
+    <name><![CDATA[Stephen Binns]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[A better javascript console]]></title>
+    <link href="http://stephenbinns.github.com/blog/2013/03/03/a-better-javascript-console/"/>
+    <updated>2013-03-03T15:37:00+00:00</updated>
+    <id>http://stephenbinns.github.com/blog/2013/03/03/a-better-javascript-console</id>
+    <content type="html"><![CDATA[<p>window.console is available on most browsers however the entire set of functions aren't always implemented. We have a choice, either we limit ourselves to logging in a single way or try and account for browser shortcomings.</p>
+
+<p>We can make use of some useful javascript techniques to ensure that we can always call the methods we expect.</p>
+
+<p>Its worth noting there are browsers which do not have a console logger, this is no problem to deal with:</p>
+
+<p><code>
+window.console = window.console || false;
+</code></p>
+
+<p>We're using a trick here, because window.console will always return a truthy value when the console property exists the value will always be false if it is not.</p>
+
+<p>We can take this a stage further if we feel like and set up a log method instead of returning false</p>
+
+<p><code>
+window.console = window.console || { log: function() { /* Do nothing */ } };
+</code></p>
+
+<p>Great, so we can always be sure calling window.console.log is safe. Now lets look at wrapping the other methods.</p>
+
+<p>```
+var levels = ['debug','info','warn','error','fatal'];</p>
+
+<p>for (var i in levels) {
+  var level = levels[i];
+  window.console[level] = window.console[level] || window.console.log;
+}
+```</p>
+
+<p>We're using an alternative method to ensure that a functions exists for each of the levels specified, we use the square bracket syntax to check the presence of the function. We're using the same trick again to ensure that there is always a function attached to all the levels we'd wish to log at.</p>
+
+<p>You can view the full gist at <a href="https://gist.github.com/stephenbinns/5076500">here</a></p>
+]]></content>
+  </entry>
+  
+</feed>

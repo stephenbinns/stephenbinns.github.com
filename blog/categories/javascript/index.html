@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>/sbin/blog</title>
+  <title>Category: javascript - /sbin/blog</title>
   <meta name="author" content="Stephen Binns">
 
   
-  <meta name="description" content="window.console is available on most browsers however the entire set of functions aren&#8217;t always implemented. We have a choice, either we limit &hellip;">
+  <meta name="description" content="Category: javascript">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://stephenbinns.github.com/">
+  <link rel="canonical" href="http://stephenbinns.github.comblog/categories/javascript/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,89 +62,40 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article role="article">
   
-  
-  
-    <article>
-      
   <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/03/a-better-javascript-console/">A Better Javascript Console</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-03T15:37:00+00:00" pubdate data-updated="true">Mar 3<span>rd</span>, 2013</time>
-        
-      </p>
+    <h1 class="entry-title">Category: Javascript</h1>
     
   </header>
+  
+  <div id="blog-archives" class="category">
 
 
-  <div class="entry-content"><p>window.console is available on most browsers however the entire set of functions aren&#8217;t always implemented. We have a choice, either we limit ourselves to logging in a single way or try and account for browser shortcomings.</p>
 
-<p>We can make use of some useful javascript techniques to ensure that we can always call the methods we expect.</p>
+  
+  <h2>2013</h2>
 
-<p>Its worth noting there are browsers which do not have a console logger, this is no problem to deal with:</p>
+<article>
+  
+<h1><a href="/blog/2013/03/03/a-better-javascript-console/">A better javascript console</a></h1>
+<time datetime="2013-03-03T15:37:00+00:00" pubdate><span class='month'>Mar</span> <span class='day'>03</span> <span class='year'>2013</span></time>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>window.console = window.console || false;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We&#8217;re using a trick here, because window.console will always return a truthy value when the console property exists the value will always be false if it is not.</p>
-
-<p>We can take this a stage further if we feel like and set up a log method instead of returning false</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>window.console = window.console || { log: function() { /* Do nothing */ } };</span></code></pre></td></tr></table></div></figure>
+<footer>
+  <span class="categories">posted in <a class='category' href='/blog/categories/javascript/'>javascript</a></span>
+</footer>
 
 
-<p></p>
+</article>
 
-<p>Great, so we can always be sure calling window.console.log is safe. Now lets look at wrapping the other methods.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var levels = ['debug','info','warn','error','fatal'];
-</span><span class='line'>
-</span><span class='line'>for (var i in levels) {
-</span><span class='line'>  var level = levels[i];
-</span><span class='line'>  window.console[level] = window.console[level] || window.console.log;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We&#8217;re using an alternative method to ensure that a functions exists for each of the levels specified, we use the square bracket syntax to check the presence of the function. We&#8217;re using the same trick again to ensure that there is always a function attached to all the levels we&#8217;d wish to log at.</p>
-
-<p>You can view the full gist at <a href="https://gist.github.com/stephenbinns/5076500">here</a></p>
 </div>
-  
-  
 
-
-    </article>
   
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+</article>
+
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -161,7 +112,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/stephenbinns">@stephenbinns</a> on GitHub
@@ -191,7 +142,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -210,6 +161,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
